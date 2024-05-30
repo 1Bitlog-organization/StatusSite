@@ -49,62 +49,149 @@
     </head>
     <body>
         <div>
-            <h1 style="padding-left: 8px; text-align: left; float: left">
-                Статус майнкрафт сервера 1Bitlog&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </h1>
-            <h1 style="text-align: right; float: right" id="status">
-                <svg height="30" width="30" xmlns="http://www.w3.org/2000/svg">
-                    <circle r="10" cx="20" cy="19" fill="yellow" />
-                </svg>
-                Loading
-            </h1>
-            <p style="clear: both; height: 0px"></p>
+            <div>
+                <h1 style="padding-left: 8px; text-align: left; float: left">
+                    Статус майнкрафт сервера
+                    1Bitlog&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </h1>
+                <h1 style="text-align: right; float: right" id="status">
+                    <svg
+                        height="30"
+                        width="30"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <circle r="10" cx="20" cy="19" fill="yellow" />
+                    </svg>
+                    Loading
+                </h1>
+                <p style="clear: both; height: 0px"></p>
 
-            <div class="container">
-                <h3>
-                    IP адрес сервера:
-                    <a href="">mc.1bitlog.ru</a>
-                </h3>
-                <h3 id="n-online">
-                    Онлайн сервера:
-                    <a class="a-ignore" id="online">Loading...</a>
-                </h3>
-                <h3 id="n-version">
-                    Версия:
-                    <a class="a-ignore" id="version">Loading...</a>
-                </h3>
-                <h3 id="data"></h3>
-                <hr />
-                <h3>
-                    Досутп к онлайн карте:
-                    <a href="http://map.1bitlog.ru">map.1bitlog.ru</a>
-                </h3>
-                <script>
-                    $.getJSON(
-                        "https://api.mcsrvstat.us/3/mc.1bitlog.ru",
-                        function (data) {
-                            if (data.online == true) {
-                                document.getElementById("status").innerHTML =
-                                    '<svg height="30" width="30" xmlns="http://www.w3.org/2000/svg"><circle r="10" cx="20" cy="19" fill="lime" /></svg> Онлайн';
-                                document.getElementById("online").innerHTML =
-                                    data.players.online +
-                                    " / " +
-                                    data.players.max;
-                                document.getElementById("version").innerHTML =
-                                    data.version;
-                            } else if (data.online == false) {
-                                document.getElementById("status").innerHTML =
-                                    '<svg height="30" width="30" xmlns="http://www.w3.org/2000/svg"><circle r="10" cx="20" cy="19" fill="red" /></svg> Оффлайн';
-                                document.getElementById("n-online").innerHTML =
-                                    "";
-                                document.getElementById("n-version").innerHTML =
-                                    "";
-                                document.getElementById("data").innerHTML =
-                                    "Сервер временно недоступен, приносим извенения за доставленные неудобства.";
+                <div class="container">
+                    <h3>
+                        IP адрес сервера:
+                        <a href="">mc.1bitlog.ru</a>
+                    </h3>
+                    <h3 id="n-online">
+                        Онлайн сервера:
+                        <a class="a-ignore" id="online">Loading...</a>
+                    </h3>
+                    <h3 id="n-version">
+                        Версия:
+                        <a class="a-ignore" id="version">Loading...</a>
+                    </h3>
+                    <h3 id="data"></h3>
+                    <hr />
+                    <h3>
+                        Страница на мониторинге:
+                        <a
+                            target="_blank"
+                            href="https://hotmc.ru/minecraft-server-230118"
+                            >hotmc.ru</a
+                        >
+                    </h3>
+                    <script>
+                        $.getJSON(
+                            "https://api.mcsrvstat.us/3/mc.1bitlog.ru",
+                            function (data) {
+                                if (data.online == true) {
+                                    document.getElementById(
+                                        "status"
+                                    ).innerHTML =
+                                        '<svg height="30" width="30" xmlns="http://www.w3.org/2000/svg"><circle r="10" cx="20" cy="19" fill="lime" /></svg> Онлайн';
+                                    document.getElementById(
+                                        "online"
+                                    ).innerHTML =
+                                        data.players.online +
+                                        " / " +
+                                        data.players.max;
+                                    document.getElementById(
+                                        "version"
+                                    ).innerHTML = data.version;
+                                } else if (data.online == false) {
+                                    document.getElementById(
+                                        "status"
+                                    ).innerHTML =
+                                        '<svg height="30" width="30" xmlns="http://www.w3.org/2000/svg"><circle r="10" cx="20" cy="19" fill="red" /></svg> Оффлайн';
+                                    document.getElementById(
+                                        "n-online"
+                                    ).innerHTML = "";
+                                    document.getElementById(
+                                        "n-version"
+                                    ).innerHTML = "";
+                                    document.getElementById("data").innerHTML =
+                                        "Сервер временно недоступен, приносим извенения за доставленные неудобства.";
+                                }
                             }
-                        }
-                    );
-                </script>
+                        );
+                    </script>
+                </div>
+            </div>
+            <br /><br /><br />
+            <div>
+                <h1 style="padding-left: 8px; text-align: left; float: left">
+                    Статус Web карты&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </h1>
+                <h1 style="text-align: right; float: right" id="status-map">
+                    <svg
+                        height="30"
+                        width="30"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <circle r="10" cx="20" cy="19" fill="yellow" />
+                    </svg>
+                    Loading
+                </h1>
+                <p style="clear: both; height: 0px"></p>
+
+                <div class="container">
+                    <h3>
+                        Досутп к онлайн карте:
+                        <a href="http://map.1bitlog.ru">map.1bitlog.ru</a>
+                    </h3>
+                    <h3 id="data"></h3>
+                    <script>
+                        // URL страницы, которую вы хотите запросить
+                        const url = "http://map.1bitlog.ru";
+                        var c = "";
+                        // Выполнение запроса к URL
+                        fetch(url)
+                            .then((response) => response.text())
+                            .then((html) => {
+                                // Создаем DOM-парсер для HTML
+                                const parser = new DOMParser();
+                                const doc = parser.parseFromString(
+                                    html,
+                                    "text/html"
+                                );
+
+                                // Получаем заголовок страницы
+                                const title =
+                                    doc.querySelector("title").innerText;
+                                c = `${title}`;
+                                if (c == "Статус сервера") {
+                                    document.getElementById(
+                                        "status-map"
+                                    ).innerHTML =
+                                        '<svg height="30" width="30" xmlns="http://www.w3.org/2000/svg"><circle r="10" cx="20" cy="19" fill="lime" /></svg> Оффлайн';
+                                } else {
+                                    document.getElementById(
+                                        "status-map"
+                                    ).innerHTML =
+                                        '<svg height="30" width="30" xmlns="http://www.w3.org/2000/svg"><circle r="10" cx="20" cy="19" fill="red" /></svg> Онлайн';
+                                }
+                            })
+                            .catch((error) => {
+                                console.error(
+                                    "Error fetching the page title:",
+                                    error
+                                );
+                                document.getElementById(
+                                    "status-map"
+                                ).innerHTML =
+                                    '<svg height="30" width="30" xmlns="http://www.w3.org/2000/svg"><circle r="10" cx="20" cy="19" fill="red" /></svg> Оффлайн';
+                            });
+                    </script>
+                </div>
             </div>
         </div>
     </body>
